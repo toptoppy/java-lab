@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Simple Parsing through XML HttpRequest</title>
+  </head>
+
+  <body>
+    <section></section>
+    <script>
+    var section = document.querySelector('section');
+    var requestURL = 'http://localhost:8000/tutorials.json';
+    var request = new XMLHttpRequest();
+    request.open('GET', requestURL);
+    request.responseType = 'json';
+    request.send();
+    request.onload = function() {
+        var tutorial = request.response;
+        showTutorial(tutorial);
+    }
+    function showTutorial(jsonObj) {
+        var tutorial_list = jsonObj['tutorials'];
+        for(var i = 0; i < tutorial_list.length; i++) {
+            var myArticle = document.createElement('article');
+            var myH = document.createElement('h2');
+            var myA = document.createElement('a');
+            myA.textContent = tutorial_list[i].display;
+            myA.href = tutorial_list[i].url;
+            myH.appendChild(myA)
+            myArticle.appendChild(myH);
+            section.appendChild(myArticle);
+        }
+    }
+    </script>
+  </body>
+</html>

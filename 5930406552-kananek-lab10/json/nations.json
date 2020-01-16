@@ -1,0 +1,12 @@
+{
+    "nations": [
+        {
+            "name": "Thailand",
+            "location": "Southeast Asia"
+        },
+        {
+            "name": "USA",
+            "location": "North America"
+        }
+    ]
+}

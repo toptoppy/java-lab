@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>NY Times API example</title>
+    <style>
+        .blue{
+            color: blue;
+        }
+
+        .green{
+            color: green;
+        }
+        body{   
+            margin: auto;
+            width: fit-content;
+        }
+    </style>
+</head>
+
+<body>
+    <h1><center>Some Restaurants in Khon Kaen</center></h1>
+    <div>
+        <ol>
+        </ol>
+    </div>
+
+    
+    <script>
+        var url = 'restaurants-kk.json';
+        fetch(url).then (function(result){
+            return result.json();
+        }).then(function (json){
+            displayResults(json);
+        });
+
+        var ol = document.querySelector('ol');
+        function displayResults(json){
+            var rest = json.results;
+            
+            for (var i = 0 ; i < rest.length ; i++ ){
+                var inn = rest[i];
+                var name = 'name' + inn.name;
+                var loc = inn.geometry.location;
+                var loctxt = 'location lat = '+loc.lat+' ing = '+loc.lng;
+
+                var para1 = document.createElement('p');
+                var para2 = document.createElement('p');
+                para1.setAttribute('class','blue');
+                para2.setAttribute('class','green');
+
+                para1.textContent = name;
+                para2.textContent = loctxt;
+
+                var li = document.createElement('li');
+                li.appendChild(para1);
+                li.appendChild(para2);
+                ol.appendChild(li);
+            }
+            
+        }
+
+    </script>
+</body>
+
+
+
+</html>

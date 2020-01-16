@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<info id="top">
+    <name>
+		<full_name>kananek mongkolsawat</full_name>
+		<nick_name>toptoppy</nick_name>
+	</name>
+	<contract>
+		<email>kananek.m@kkumail.com</email>
+		<facebook>toptoppy kananek mongkolsawat</facebook>
+		my address is 
+		<number>199/1</number>
+		<village_No>7</village_No>
+		<sub_area>nungpie</sub_area>
+		<district>mung</district>
+		<province>udonthani</province>
+	</contract>	
+	<hobbie>
+		i like to listen
+		<music id="m01">present perfact</music>
+		<music id="m02">ของมันต้องมี</music>
+		i like to read 
+		<book id="b01">bakamonogatari serie</book>
+		<book id="b02">หนังสือแนวปรัชญา</book>
+	</hobbie>
+</info>

@@ -1,0 +1,33 @@
+html {
+    font-size: 10px;
+    font-family: 'Prompt', sans-serif;
+    background-color: aqua;
+}
+
+body {
+    width: 1200px;
+    background-image: url("../images/bg.jpg") ;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0 auto;
+    background-color: #C4B6C4;
+    padding: 0 20px 20px 20px;
+    border: 5px sandybrown;
+}
+
+h1 {
+    color: #c92626;
+    font-size: 60px;
+    text-align: center;
+}
+
+img {
+    display: block;
+    margin: 0 auto;
+}
+
+p, a, li {
+    font-size: 16px;
+    line-height: 2;
+    letter-spacing: 1px;
+}

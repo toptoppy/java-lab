@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OilPrice xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://ptt.com"
+        xsi:schemaLocation="http://ptt.com ptt.xsd">
+    <CurrentOilPrice>
+        <Language>TH</Language>
+    </CurrentOilPrice>
+    <CurrentOilPriceResponse>
+        <CurrentOilPriceResult>TH</CurrentOilPriceResult>
+    </CurrentOilPriceResponse>
+    <GetOilPrice>
+        <Language>TH</Language>
+        <DD>01</DD>
+        <MM>08</MM>
+        <YYYY>2019</YYYY>
+    </GetOilPrice>
+    <GetOilPriceResponse>
+        <GetOilPriceResult>toptoppy</GetOilPriceResult>
+    </GetOilPriceResponse>   
+</OilPrice>

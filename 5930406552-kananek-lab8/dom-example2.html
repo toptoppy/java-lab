@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Simple DOM example</title>
+</head>
+
+<body>
+    <section>
+        <img src="images/kku.jpg" alt="KKU">
+        <p>Here we will add a link to the
+            <a href="http://www.kku.ac.th">KKU</a></p>
+    </section>
+</body>
+<script>
+    var section = document.querySelector('section');
+    var para = section.removeChild(document.querySelector('p'));
+    var link = document.createElement('a');
+    var img = document.querySelector('img');
+
+    img.setAttribute('src',"images/en-kku.jpg");
+    img.setAttribute('alt',"EN-KKU");
+    img.style.width = '24%';
+    img.style.objectFit ='cover';
+    img.style.height = 'auto';
+
+    link.setAttribute('href', "https://www.en.kku.ac.th/web/");
+    link.setAttribute('target',"_blank");
+     
+    para.textContent = "We hope you enjoy learning";
+    para.style.color = 'white';
+    para.style.backgroundColor = 'black';
+    para.style.boxSizing ='border-box';
+    para.style.width = '24%';
+    para.style.paddingTop = '8px';
+    para.style.paddingBottom = '8px';
+    para.style.textAlign = 'center';
+
+    
+
+    link.appendChild(img);
+    section.appendChild(link);
+    section.appendChild(para);
+</script>
+
+</html>

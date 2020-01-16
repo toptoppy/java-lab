@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Shopping list example</title>
+    <style>
+        li {
+        margin-bottom: 10px;
+      }
+      li button {
+        font-size: 8px;
+        margin-left: 20px;
+        color: #666;
+      }
+    </style>
+</head>
+
+<body>
+
+    <h1>My shopping list</h1>
+
+    <div>
+        <label for="item">Enter a new item:</label>
+        <input type="text" name="item" id="item">
+        <button>Add item</button>
+    </div>
+
+    <ul>
+
+    </ul>
+
+    <script>
+        var ul = document.querySelector('ul');
+        var item = document.querySelector('#item');
+        var enter = document.querySelector('button');
+        var totalItem = document.createElement('p');
+        var numberItem = 0;
+
+        enter.addEventListener('click', inputEvent);
+
+        function inputEvent() {
+            var li = document.createElement('li');
+            var span = document.createElement('span');
+            var del = document.createElement('button');
+            var inputTo = item.value;
+
+            span.innerHTML = inputTo;
+            del.innerHTML = 'Delete';
+            del.style.color = 'grey';
+            numberItem += 1;
+            addNumber();
+
+            li.appendChild(span);
+            li.appendChild(del);
+            ul.appendChild(li);
+            ul.parentElement.appendChild(totalItem);
+
+            item.value = "";
+            item.focus();
+            del.addEventListener('click', function () {
+                delEvent(event);
+            });
+
+        }
+
+        function delEvent(event) {
+            var del_li = event.target;
+            numberItem -= 1;
+            addNumber();
+            ul.removeChild(del_li.parentElement);
+        }
+
+        function addNumber() {
+            if (numberItem > 1) {
+                totalItem.innerHTML = "The list has " + numberItem + " items";
+            } else
+                totalItem.innerHTML = "The list has " + numberItem + " item";
+        }
+
+    </script>
+</body>
+
+</html>

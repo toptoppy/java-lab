@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Simple Parsing through XML HttpRequest</title>
+</head>
+
+<body>
+    <h1>Open Data Images</h1>
+    <img src='http://bdfjade.com/data/out/20/5285217-sad-pic.jpg'>
+    <section></section>
+    <script>
+        var section = document.querySelector('section');
+        var requestURL = 'https://api.data.go.th/search_virtuoso/api/dataset/query?dsname=vir_237_1535648421&loadAll=1&type=json&limit=10';
+        var request = new XMLHttpRequest();
+        request.open('GET', requestURL);
+        request.responseType = 'json';
+        request.send();
+        request.onload = function () {
+            document.body.removeChild(document.querySelector('img'));
+            var WebAPI = request.response;
+            showTutorial(WebAPI);
+        }
+
+
+        function showTutorial(jsonObj) {
+            var WebAPI_list = jsonObj['data'];
+            var myArticle = document.createElement('article');
+            var myOl = document.createElement('OL');
+
+            
+            for (var i = 0; i < WebAPI_list.length; i++) {
+                var myLi = document.createElement('LI');
+                var myImg = document.createElement('img');
+
+                myImg.setAttribute('src', WebAPI_list[i].thumb_pic);
+
+                myLi.appendChild(myImg);
+                myOl.appendChild(myLi);
+                myArticle.appendChild(myOl);
+                section.appendChild(myArticle);
+            }
+        }
+    </script>
+</body>
+
+</html>

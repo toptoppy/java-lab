@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>The jQuery Example</title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    </script>
+
+
+</head>
+
+<body>
+    <p>Click on the button parse Google Map Geocoding file</p>
+    <div id="stage" style="background-color:yellow;">
+        STAGE
+    </div>
+
+    <input type="button" id="driver" value="Load Data" />
+
+    <script>
+        $(document).ready(function () {
+            $("#driver").click(function () {
+                $.ajax({
+                    url: ' https://maps.googleapis.com/maps/api/geocode/xml?address=Khon%20Kaen%20University&key=AIzaSyDJ5BK9PkCyp9r_JbIue8W2HJar16C3Tko',
+                    type: 'GET',
+                    dataType: "xml",
+                    success: function (data) {
+                        parseXml(data);
+                    }
+                });
+            });
+        });
+        function parseXml(xml) {
+            var nation = $(xml).find("result");
+            $('#stage').html('<p></p>');
+            $('#stage p').html(' Address: ' + $(nation).find("formatted_address").text() + '</br>' + 'Latitude: ' 
+            + $(nation).find("geometry").find("location").find("lat").text() + ' Longtitude: ' + $(nation).find("geometry").find("location").find("lng").text());
+        }
+    </script>
+
+</html>

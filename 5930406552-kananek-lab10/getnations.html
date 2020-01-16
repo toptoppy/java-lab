@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>The jQuery Example</title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    </script>
+
+
+</head>
+
+<body>
+    <p>Click on the button to load result.json file</p>
+
+    <div id="stage" style="background-color:yellow;" >
+        STAGE
+    </div>
+
+    <input type="button" id="driver" value="Load Data" />
+    
+    <script type="text/javascript" language="javascript">
+        $(document).ready(function () {
+            $("#driver").click(function (event) {
+                $.getJSON('json/nations.json', function (jd) {
+                    var result = "<ul>";
+                    console.log(jd);
+                    
+                    for (var i = 0; i < jd.nations.length; i++) {
+                        result += '<li>' + jd.nations[i].name + " is in " + jd.nations[i].location + '</li>';
+                    }
+                    result += "</ul>";
+                    $('#stage').html(result);
+                });
+            });
+        });
+    </script>
+</body>
+
+
+</html>
